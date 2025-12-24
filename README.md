@@ -36,7 +36,7 @@ Before running this project, ensure you have the following installed:
 Open your terminal and run:
 
 ```bash
-git clone [https://github.com/IamJoof/ChatWithGemini.git](https://github.com/IamJoof/ChatWithGemini.git)
+git clone https://github.com/IamJoof/ChatWithGemini.git
 cd ChatWithGemini
 
 ```
@@ -86,7 +86,3 @@ To stop the container, press Ctrl + C in the terminal.
 * Dockerfile - Multi-stage build configuration (Node -> Nginx)
 * docker-compose.yml - Container orchestration
 * .env.example - Template for environment variables
-
-```
-
-```
