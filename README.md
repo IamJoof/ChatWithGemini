@@ -8,7 +8,7 @@ Chat system that will communicate with Google's AI <Gemini> this is my first tim
 
 
 
-## Authors
+## Author
 
 - [@John Fred Macapaz](https://github.com/IamJoof)
 
