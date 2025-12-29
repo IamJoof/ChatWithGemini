@@ -17,10 +17,8 @@ dist-ssr
 *.local
 
 # --- Environment Variables (UPDATED) ---
-# This ignores .env in the root, client/, and server/
 .env
 .env.*
-# This explicitly ALLOWS the example file so you can share it
 !.env.example
 
 # Editor directories and files
