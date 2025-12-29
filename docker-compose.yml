@@ -1,10 +1,39 @@
 services:
-  gemini-chat:
+  # ----------------------------
+  # React Frontend Client
+  # ----------------------------
+  client:
     build:
-      context: .
+      context: ./client
       args:
         - VITE_GEMINI_API_KEY=${VITE_GEMINI_API_KEY}
     ports:
       - "8080:80"
-    env_file:
-      - .env
+    depends_on:
+      - server
+
+  # ----------------------------
+  # Express Backend Server
+  # ----------------------------
+  server:
+    build: ./server
+    ports:
+      - "5000:5000" 
+    environment:
+      - PORT=5000
+      - MONGO_URI=mongodb://mongo:27017/chat-app
+    depends_on:
+      - mongo
+
+  # ----------------------------
+  # Database Service
+  # ----------------------------
+  mongo:
+    image: mongo:6.0
+    ports:
+      - "27017:27017" 
+    volumes:
+      - mongo-data:/data/db 
+
+volumes:
+  mongo-data:

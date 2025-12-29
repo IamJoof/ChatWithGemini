@@ -1,6 +1,6 @@
-// src/components/ChatMessage.jsx
 import React from 'react';
-import { MdDeleteOutline, MdEdit } from "react-icons/md"; // Import icons
+import ReactMarkdown from 'react-markdown';
+import { MdDeleteOutline, MdEdit } from "react-icons/md";
 
 function ChatMessage({ message, onDelete, onEdit }) {
     const isUser = message.sender === "user";
@@ -9,10 +9,11 @@ function ChatMessage({ message, onDelete, onEdit }) {
         <div className={`message-row ${isUser ? 'message-right' : 'message-left'}`}>
             <div className={`message-bubble ${isUser ? 'bubble-user' : 'bubble-ai'}`}>
                 
-                <p style={{ margin: 0 }}>{message.text}</p>
+                <div className="markdown-content">
+                    <ReactMarkdown>{message.text}</ReactMarkdown>
+                </div>
                 
                 <div className="message-actions">
-                    {/* Delete Icon */}
                     <button 
                         onClick={() => onDelete(message.id)} 
                         className="btn-icon btn-delete"
@@ -21,7 +22,6 @@ function ChatMessage({ message, onDelete, onEdit }) {
                         <MdDeleteOutline size={16} />
                     </button>
                     
-                    {/* Edit Icon */}
                     {isUser && (
                         <button 
                             onClick={() => onEdit(message)} 
